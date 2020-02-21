@@ -5,11 +5,117 @@
 
 
 Простые типы
+  Булевые True/False
+  int, float
+  string
 
+a = f'this is a string {1+1}'
+print(a)
 
+a = "{}{}{}".format(1,2,3)
+a = "{a}{b}{c}".format(a=1,b=2,c=3)
+
+a = 'hello world'
+b = a.split(' ')
+print(b)
+
+a = '  world  '
+b = a.strip()
+print(b)
+
+a = 'wwww.test.ua'
+b = a.startswith('www')
+print(b)
+b = a.endswith('www')
+print(b)
+
+a = 'https://wwww.test.ua'
+print(a.startswith(('http', 'https')))
+
+b = a.replace('https', 'http')
+print(b)
+
+b = a.upper()
+print(b)
+
+b = a.isupper()
+print(b)
+
+b = a.rjust(20, '!')
+
+a = '123'
+b = format(a, '^20')
+print(b)
+
+a = 'rrrrr\ntttt'
+print(a)
 
 Мутабельные типы
 
 
 
 Сложные типы
+list
+
+a = 1
+print(id(a))
+
+a = [1,2]
+print(id(a))
+a.append(3)
+print(id(a))
+
+a = list()
+print(a)
+a.append(1)
+print(a)
+
+b = [4,5,6]
+a.extend(b)
+print(a)
+
+a.clear()
+print(a)
+
+a = [1,2,3]
+b = a.pop()
+print(b)
+print(a)
+b = a.pop(1)
+print(b)
+print(a)
+
+a = [1,1,2,3,5,8]
+a.remove(1)
+print(a)
+
+a.reverse()
+print(a)
+
+print(len(a))
+print(min(a))
+print(max(a))
+
+a.sort()
+print(a)
+
+b = sorted(a)
+print(b)
+
+for element in a:
+    print(element)
+    
+    
+ tuple кортеж
+ неизменяемый
+  
+ set множество
+ хранит уникальные значения
+ 
+ dict словарь
+ a.get("three", 1) хорошая возможность отработать получение данных по несуществующему ключу
+ a.get('data', dict()).get('on', 2) вернет 2 при любой непредвиденной структуре словаря
+ 
+ a.keys()
+ a.values()
+ a.items()
