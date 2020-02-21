@@ -119,3 +119,13 @@ for element in a:
  a.keys()
  a.values()
  a.items()
+
+list comprehension (!):
+
+a = [1,2,3]
+for x in a:
+  print(x)
+  
+print( [x for x in a])
+print( [x*2 for x in a])
+print( [x*2 for x in a if x == 2])
