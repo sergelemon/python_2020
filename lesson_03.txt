@@ -1,0 +1,27 @@
+#Comprehesion list
+
+a = [i**2 for i in range(5) if not i % 2]
+print(a)
+
+def test(data=None):
+    x = 1
+    y = 2
+    return x, y
+
+# Отделение позиционных от именованных
+#def test(positional, *, named)
+#test(2, named=8)
+
+
+def test1(*args):
+    # здесь args - это кортеж
+    return None
+
+def test2(**kwargs):
+    # здесь kwargs - это именованные аргументы
+    for i in kwargs.values():
+        print(i)
+
+#x, y = test()
+a = {'a':1, 'b':2}
+test2(**a)
