@@ -1,0 +1,50 @@
+# def plan_trip(destination_list):
+#
+#     hotels = {"Odesa": 33, "Kyiv": 42, "Larnaka": 49, "Istanbul": 38}
+#     flights = {"Odesa": 80, "Kyiv": 97, "Larnaka": 134, "Istanbul": 149}
+#     result = list()
+#
+#     for city_data in destination_list:
+#
+#         days, city = city_data
+#         if city not in hotels.keys():
+#             return 'error: unknown city'
+#
+#         cost = float(2 * flights[city] + days * hotels[city])
+#         result.append(cost)
+#
+#     return result
+#
+#
+# check = [(8, 'Kyiv'), (5, 'Istanbul')]
+# plan = plan_trip(check)
+#
+# print(plan)
+#
+
+# def count_work_hours(in_time, out_time, rate):
+#
+#     if in_time > 23:
+#         return 'error: in_time > 23'
+#     elif out_time > 23:
+#         return 'error: out_time > 23'
+#     elif out_time < in_time:
+#         return 'error: out_time > in_time'
+#
+#     delta = out_time - in_time
+#     answer = 0
+#
+#     if delta == 8:
+#         answer = delta * rate
+#     elif delta > 8:
+#         answer = rate * 8 + rate * 1.5 * (delta - 8)
+#
+#     return f'{answer} for {delta} hours'
+#
+#
+# in_time = 9
+# out_time = 20
+# rate = 300
+#
+# work_hours = count_work_hours(in_time, out_time, rate)
+# print(work_hours)
