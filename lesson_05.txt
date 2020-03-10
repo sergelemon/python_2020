@@ -1,1 +1,42 @@
 
+OS
+------------------
+
+import os - набор интерфейсов ОС
+os.getenv(keyname, default=None) - получение системной переменной
+os.chmod()/os.chown() - изменение прав на файле
+os.mkdir(path=PathLike, mode) - создание директории
+os.remove(path=PathLike) - удаление объектов
+
+
+os.listdir()
+os.scandir()
+
+
+os.walk():
+
+dir_name = '.'
+for path, dirs, files in os.walk(dir_name, topdown=False):
+  print(f'dir {path} found')
+  for file_name in files:
+    print(file_name)
+    os.remove(file_name)
+    
+открытие файла:
+
+file_name = 'r_test.txt'
+r_file = open(file_name, 'r')
+    
+где
+r - read
+w - write
+x - create and write
+a - append
+r+ - reading and writing (!=)
+
+r_file.read() - прочесть весь файл
+r_file.readlines() - прочесть файл построчно и получить лист строк
+r_file.seek(0) - в начало файла
+
+
+
