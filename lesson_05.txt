@@ -1,6 +1,6 @@
-
+--------------------------
 OS
-------------------
+--------------------------
 
 import os - набор интерфейсов ОС
 os.getenv(keyname, default=None) - получение системной переменной
@@ -38,5 +38,95 @@ r_file.read() - прочесть весь файл
 r_file.readlines() - прочесть файл построчно и получить лист строк
 r_file.seek(0) - в начало файла
 
+r_file = open(file_name, 'w') 
+r_file.write('123')
+r_file.close()
+
+--------------------------
+Менеджеры контекста - with
+--------------------------
+
+with open('test.txt', 'w') as test_file:
+  test_file.write('first_line')  
+  #test_file.close() в данном варианте не нужен, отработает сам
+  
+from requests import Session
+with Session() as session:
+  session.auth...
+  Здесь тоже не нужен close!
+  
+  
+--------------------------
+Функции, возвращающие функции
+--------------------------
+
+def hello(name):
+  print(f'Hello {name}')
+
+def greet(function, name):
+  return function(name)
+
+greet(hello, name)
+
+--------------------------
+Вложенные Функции
+--------------------------
+
+Если функция возвращает несколько значений, можно схитрить:
+
+def check():
+  return 1,2,3,4
+
+a, *, b = check()
+здесь a = 1, b = 4
+
+
+--------------------------
+Декораторы
+--------------------------
+
+def test_decorator(func):
+  def wrapper():
+    print('wrapping')
+    func()
+    print('after')
+  return wrapper
+ 
+"Обычный" способ использования:
+ 
+def clean_func():
+  print('Clean')
+  
+decorated = test_decorator(clean_func)
+decorated()
+
+"Изящный" способ использования (т.н. "сахар"):
+ 
+@test_decorator
+def clean_func():
+  print('Clean')
+ 
+clean_func()
+
+Пример функции с аргументами
+
+def test_decorator(func):
+  def wrapper(*args, **kwargs):
+    print('wrapping')
+    func(*args, **kwargs)
+    print('after')
+  return wrapper
+ 
+@test_decorator
+def clean_func(num):
+  print(f'Clean {num}')
+
+clean_func(1)
+
+----------------------------
+Декораторы с аргументами:
+----------------------------
+
+далее очень сложный пример....
 
 
