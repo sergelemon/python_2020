@@ -1,0 +1,65 @@
+# def jsonEncoder(data):
+#     with open('C:/git/result.json', 'w') as r_file:
+#         splitData = (elem.split(':') for elem in data.split(','))
+#         dict_json = {k.strip():v.strip() for k, v in splitData}
+#         r_file.write(str(dict_json))
+#
+# s = 'Name: Peter, Age: 20, Country: USA'
+# jsonEncoder(s)
+#
+# from datetime import datetime
+#
+# def with_log(func):
+#     def wrapper(*args):
+#         with open('C:/git/111.log', 'a') as log:
+#             log.write(f'{datetime.now()} - Function {func.__name__} started\n')
+#             result = func(*args)
+#             log.write(f'{datetime.now()} - Function {func.__name__} finished\n')
+#         return result
+#     return wrapper
+#
+# @with_log
+# def test_logging():
+#     print('inner function for testing')
+#
+# test_logging()
+
+file1 = 'C:/git/file1.txt'
+# file2 = 'C:/git/file2.txt'
+# file3 = 'C:/git/file3.txt'
+#
+# def mix_files(mode, file1, file2):
+#     with open(file1, 'r') as f1, open(file2, 'r') as f2, open(file3, 'w') as f3:
+#         if mode == 1:
+#             f3.writelines([f1.read(),'\n', f2.read()])
+#         else:
+#             max_len = max(len(f1.readlines()), len(f2.readlines()))
+#             for i in range(max_len-1):
+#                 if len(f1.readlines()) > i:
+#                     print(f1.readlines()[i])
+#                 if len(f2.readlines()) > i:
+#                     print(f2.readlines()[i])
+#                 # f3.write(f'{f1.readlines[i]}\n{f2.readlines[i]}')
+
+
+# mix_files(2, file1, file2)
+
+# Напишите функцию которая читает и распечатывает файл
+# Напишите декоратор, который печатает название файла и количество слов в нем
+
+def check_file(func):
+    def wrapper(*args):
+        file_name = args[0]
+        print(file_name)
+        with open(file_name, 'r') as log:
+            print(len(log.read().split()))
+        result = func(*args)
+        return result
+    return wrapper
+
+@check_file
+def printfile(file_name):
+    with open(file_name, 'r') as log:
+        print(log.read())
+
+printfile(file1)
